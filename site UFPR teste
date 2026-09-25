@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicação Institucional - UFPR</title>
+    <style>
+        /* Reset e Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #004b82;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* 1. Barra Padrão Gov.br */
+        .gov-bar {
+            background-color: #004b82;
+            color: #ffffff;
+            font-size: 0.8rem;
+            padding: 8px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .gov-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .gov-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .gov-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* 2. Banner Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0, 75, 130, 0.85), rgba(0, 40, 70, 0.9)), url('https://placeholder.com') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #004b82;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta:hover {
+            background-color: #ffe066;
+            transform: translateY(-2px);
+        }
+
+        /* 3. Seção 1: O Curso */
+        .about {
+            background-color: #ffffff;
+        }
+
+        .about p {
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            color: #555;
+        }
+
+        /* Grid de Cards Gerais */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #004b82;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #004b82;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Seção 2: Diferenciais (Fundo Alternado) */
+        .differentials {
+            background-color: #f0f4f8;
+        }
+
+        /* Seção 3: Aprendizado */
+        .learning {
+            background-color: #ffffff;
+        }
+
+        /* Seção 4: Mercado de Trabalho */
+        .market {
+            background-color: #f0f4f8;
+        }
+        
+        .market .card {
+            border-top: 4px solid #ffcc00;
+        }
+
+        /* Seção 5: Contato e Dúvidas */
+        .contact {
+            background-color: #ffffff;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #004b82;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #004b82;
+            color: white;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #002d52;
+        }
+
+        /* 4. Rodapé Estruturado */
+        footer {
+            color: #ffffff;
+        }
+
+        /* Rodapé 1 - Cinza Padrão UFPR */
+        .footer-gray {
+            background-color: #707070;
+            padding: 40px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-gray .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left p {
+            margin-bottom: 5px;
+        }
+
+        .footer-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Rodapé 2 - Azul Governo Federal */
+        .footer-blue {
+            background-color: #004b82;
+            padding: 15px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-blue .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .footer-gray .container, .footer-blue .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-right {
+                text-align: center;
+                align-items: center;
+            }
+            .social-links a { margin: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA PADRÃO GOV.BR -->
+    <header class="gov-bar">
+        <div class="container">
+            <strong>COMUNICA BR</strong>
+            <nav>
+                <a href="#conteudo">IR PARA O CONTEÚDO 1</a>
+                <a href="#menu">IR PARA O MENU 2</a>
+                <a href="#busca">IR PARA A BUSCA 3</a>
+                <a href="#rodape">IR PARA O RODAPÉ 4</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL (HOME PAGE) -->
+    <section class="hero" id="conteudo">
+        <div class="container">
+            <h1>Comunicação Institucional na UFPR</h1>
+            <p>Domine as mídias digitais, crie estratégias visuais e construa o posicionamento de grandes marcas ou tenha a sua marca na melhor universidade do Paraná.</p>
+            <a href="#contato" class="btn-cta">Venha para a UFPR!</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 1: O CURSO -->
+    <section class="about" id="menu">
+        <div class="container">
+            <h2>O que é Comunicação Institucional?</h2>
+            <p>O Curso Superior de Tecnologia em Comunicação Institucional da UFPR prepara você para gerenciar a reputação de grandes marcas, trabalhando com a identidade e a voz de empresas e organizações no ambiente digital.</p>
+            <p>Com duração de 3 anos, a graduação combina teoria e prática desde o primeiro semestre. Você transforma ideias em campanhas, projetos visuais em conteúdo estratégico, além de trabalhar clientes e marcas reais com software de qualidade, conectando marcas e pessoas de forma eficiente.</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: DIFERENCIAIS -->
+    <section class="differentials">
+        <div class="container">
+            <h2>Por que fazer este curso?</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Domínio Visual</h3>
+                    <p>Aulas práticas de design gráfico, fotografia técnica, tipografia e edição audiovisual nos laboratórios do SEPT.</p>
+                </div>
+                <div class="card">
+                    <h3>Aprenda na Prática</h3>
+                    <p>Projetos focados em criação de marcas, redação para web, campanhas digitais e eventos.</p>
+                </div>
+                <div class="card">
